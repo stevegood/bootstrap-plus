@@ -14,6 +14,7 @@
   <!-- Optional theme -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
 
+  <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 
@@ -62,39 +63,31 @@
 </head>
 <body>
 
+<bsp:navbar position="fixed-top">
+  <bsp:container>
+    <bsp:navbarHeader>
+      <bsp:navbarBrand href="./">SGO Bootstrap</bsp:navbarBrand>
+      <bsp:navbarToggle target="#navbar-main" />
+    </bsp:navbarHeader>
+    <bsp:navbarCollapse id="navbar-main">
+      <bsp:navbarNav>
+        <bsp:navbarDropdown id="download" label="Download">
+          <bsp:navbarNavLink href="dist/css/bootstrap.css">bootstrap.css</bsp:navbarNavLink>
+          <bsp:navbarNavLink href="dist/css/bootstrap.min.css">bootstrap.min.css (minified)</bsp:navbarNavLink>
+          <bsp:navbarDropdownDivider />
+          <bsp:navbarNavLink href="less/variables.less">variables.less</bsp:navbarNavLink>
+          <bsp:navbarNavLink href="less/sgo.less">sgo.less</bsp:navbarNavLink>
+        </bsp:navbarDropdown>
+      </bsp:navbarNav>
 
-<div class="navbar navbar-default navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-header">
-      <a href="../" class="navbar-brand">SGO Bootstrap</a>
-      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    </div>
-    <div class="navbar-collapse collapse" id="navbar-main">
-      <ul class="nav navbar-nav">
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download">Download <span class="caret"></span></a>
-          <ul class="dropdown-menu" aria-labelledby="download">
-            <li><a href="dist/css/bootstrap.css">bootstrap.css</a></li>
-            <li><a href="dist/css/bootstrap.min.css">bootstrap.min.css (minified)</a></li>
-            <li class="divider"></li>
-            <li><a href="less/variables.less">variables.less</a></li>
-            <li><a href="less/sgo.less">sgo.less</a></li>
-          </ul>
-        </li>
-      </ul>
-
-      <ul class="nav navbar-nav navbar-right">
-        <li id="built-with-bootstrap"><a href="http://builtwithbootstrap.com/" target="_blank"><span>Built With Bootstrap</span></a></li>
-      </ul>
-
-    </div>
-  </div>
-</div>
-
+      <bsp:navbarNav position="right">
+        <bsp:navbarNavLink li-id="built-with-bootstrap" href="http://builtwithbootstrap.com/" target="_blank">
+          <span>Built With Bootstrap</span>
+        </bsp:navbarNavLink>
+      </bsp:navbarNav>
+    </bsp:navbarCollapse>
+  </bsp:container>
+</bsp:navbar>
 
 <bsp:container>
   <bsp:pageHeader id="banner">
@@ -119,99 +112,81 @@
         </bsp:pageHeader>
 
         <div class="bs-component">
-          <div class="navbar navbar-default">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="#">Brand</a>
-            </div>
-            <div class="navbar-collapse collapse navbar-responsive-collapse">
-              <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Active</a></li>
-                <li><a href="#">Link</a></li>
-                <li class="disabled"><a href="#">Disabled Link</a></li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li class="divider"></li>
-                    <li class="dropdown-header">Dropdown header</li>
-                    <li><a href="#">Separated link</a></li>
-                    <li><a href="#">One more separated link</a></li>
-                  </ul>
-                </li>
-              </ul>
-              <form class="navbar-form navbar-left">
+          <bsp:navbar>
+            <bsp:navbarHeader>
+              <bsp:navbarToggle target=".navbar-responsive-collapse" />
+              <bsp:navbarBrand href="#">Brand</bsp:navbarBrand>
+            </bsp:navbarHeader>
+
+            <bsp:navbarCollapse class="navbar-responsive-collapse">
+              <bsp:navbarNav>
+                <bsp:navbarNavLink href="#" li-class="active">Active</bsp:navbarNavLink>
+                <bsp:navbarNavLink href="#">Link</bsp:navbarNavLink>
+                <bsp:navbarNavLink href="#" li-class="disabled">Disabled Link</bsp:navbarNavLink>
+                <bsp:navbarDropdown label="Dropdown">
+                  <bsp:navbarNavLink href="#">Action</bsp:navbarNavLink>
+                  <bsp:navbarNavLink href="#">Another action</bsp:navbarNavLink>
+                  <bsp:navbarNavLink href="#">Something else here</bsp:navbarNavLink>
+                  <bsp:navbarDropdownDivider />
+                  <bsp:navbarDropdownHeader>Dropdown Header</bsp:navbarDropdownHeader>
+                  <bsp:navbarNavLink href="#">Separated link</bsp:navbarNavLink>
+                  <bsp:navbarNavLink href="#">One more separated link</bsp:navbarNavLink>
+                </bsp:navbarDropdown>
+              </bsp:navbarNav>
+              <bsp:navbarForm position="left">
                 <input type="text" class="form-control col-lg-8" placeholder="Search">
-              </form>
-              <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Link</a></li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-          </div>
+              </bsp:navbarForm>
+              <bsp:navbarNav position="right">
+                <bsp:navbarNavLink href="#">Link</bsp:navbarNavLink>
+                <bsp:navbarDropdown label="Dropdown">
+                  <bsp:navbarNavLink href="#">Action</bsp:navbarNavLink>
+                  <bsp:navbarNavLink href="#">Another action</bsp:navbarNavLink>
+                  <bsp:navbarNavLink href="#">Something else here</bsp:navbarNavLink>
+                  <bsp:navbarDropdownDivider />
+                  <bsp:navbarNavLink href="#">Separated link</bsp:navbarNavLink>
+                </bsp:navbarDropdown>
+              </bsp:navbarNav>
+            </bsp:navbarCollapse>
+          </bsp:navbar>
         </div>
 
         <div class="bs-component">
-          <div class="navbar navbar-inverse">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-inverse-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="#">Brand</a>
-            </div>
-            <div class="navbar-collapse collapse navbar-inverse-collapse">
-              <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Active</a></li>
-                <li><a href="#">Link</a></li>
-                <li class="disabled"><a href="#">Disabled Link</a></li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li class="divider"></li>
-                    <li class="dropdown-header">Dropdown header</li>
-                    <li><a href="#">Separated link</a></li>
-                    <li><a href="#">One more separated link</a></li>
-                  </ul>
-                </li>
-              </ul>
-              <form class="navbar-form navbar-left">
+          <bsp:navbar inverse="true">
+            <bsp:navbarHeader>
+              <bsp:navbarToggle target=".navbar-responsive-collapse" />
+              <bsp:navbarBrand href="#">Brand</bsp:navbarBrand>
+            </bsp:navbarHeader>
+
+            <bsp:navbarCollapse class="navbar-responsive-collapse">
+              <bsp:navbarNav>
+                <bsp:navbarNavLink href="#" li-class="active">Active</bsp:navbarNavLink>
+                <bsp:navbarNavLink href="#">Link</bsp:navbarNavLink>
+                <bsp:navbarNavLink href="#" li-class="disabled">Disabled Link</bsp:navbarNavLink>
+                <bsp:navbarDropdown label="Dropdown">
+                  <bsp:navbarNavLink href="#">Action</bsp:navbarNavLink>
+                  <bsp:navbarNavLink href="#">Another action</bsp:navbarNavLink>
+                  <bsp:navbarNavLink href="#">Something else here</bsp:navbarNavLink>
+                  <bsp:navbarDropdownDivider />
+                  <bsp:navbarDropdownHeader>Dropdown Header</bsp:navbarDropdownHeader>
+                  <bsp:navbarNavLink href="#">Separated link</bsp:navbarNavLink>
+                  <bsp:navbarNavLink href="#">One more separated link</bsp:navbarNavLink>
+                </bsp:navbarDropdown>
+              </bsp:navbarNav>
+              <bsp:navbarForm position="left">
                 <input type="text" class="form-control col-lg-8" placeholder="Search">
-              </form>
-              <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Link</a></li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-          </div>
+              </bsp:navbarForm>
+              <bsp:navbarNav position="right">
+                <bsp:navbarNavLink href="#">Link</bsp:navbarNavLink>
+                <bsp:navbarDropdown label="Dropdown">
+                  <bsp:navbarNavLink href="#">Action</bsp:navbarNavLink>
+                  <bsp:navbarNavLink href="#">Another action</bsp:navbarNavLink>
+                  <bsp:navbarNavLink href="#">Something else here</bsp:navbarNavLink>
+                  <bsp:navbarDropdownDivider />
+                  <bsp:navbarNavLink href="#">Separated link</bsp:navbarNavLink>
+                </bsp:navbarDropdown>
+              </bsp:navbarNav>
+            </bsp:navbarCollapse>
+          </bsp:navbar>
         </div><!-- /example -->
       </bsp:col>
     </bsp:row>
@@ -383,17 +358,17 @@
   <!-- Typography
 ================================================== -->
   <div class="bs-docs-section">
-    <div class="row">
+    <bsp:row>
       <div class="col-lg-12">
         <div class="page-header">
           <h1 id="type">Typography</h1>
         </div>
       </div>
-    </div>
+    </bsp:row>
 
     <!-- Headings -->
 
-    <div class="row">
+    <bsp:row>
       <div class="col-lg-4">
         <div class="bs-component">
           <h1>Heading 1</h1>
@@ -428,16 +403,16 @@
         </div>
 
       </div>
-    </div>
+    </bsp:row>
 
     <!-- Blockquotes -->
 
-    <div class="row">
+    <bsp:row>
       <div class="col-lg-12">
         <h2 id="type-blockquotes">Blockquotes</h2>
       </div>
-    </div>
-    <div class="row">
+    </bsp:row>
+    <bsp:row>
       <div class="col-lg-6">
         <div class="bs-component">
           <blockquote>
@@ -454,14 +429,14 @@
           </blockquote>
         </div>
       </div>
-    </div>
+    </bsp:row>
   </div>
 
   <!-- Tables
 ================================================== -->
   <div class="bs-docs-section">
 
-    <div class="row">
+    <bsp:row>
       <div class="col-lg-12">
         <div class="page-header">
           <h1 id="tables">Tables</h1>
@@ -524,21 +499,21 @@
           </table>
         </div><!-- /example -->
       </div>
-    </div>
+    </bsp:row>
   </div>
 
   <!-- Forms
 ================================================== -->
   <div class="bs-docs-section">
-    <div class="row">
+    <bsp:row>
       <div class="col-lg-12">
         <div class="page-header">
           <h1 id="forms">Forms</h1>
         </div>
       </div>
-    </div>
+    </bsp:row>
 
-    <div class="row">
+    <bsp:row>
       <div class="col-lg-6">
         <div class="well bs-component">
           <form class="form-horizontal">
@@ -671,22 +646,22 @@
         </form>
 
       </div>
-    </div>
+    </bsp:row>
   </div>
 
   <!-- Navs
 ================================================== -->
   <div class="bs-docs-section">
 
-    <div class="row">
+    <bsp:row>
       <div class="col-lg-12">
         <div class="page-header">
           <h1 id="nav">Navs</h1>
         </div>
       </div>
-    </div>
+    </bsp:row>
 
-    <div class="row">
+    <bsp:row>
       <div class="col-lg-4">
         <h2 id="nav-tabs">Tabs</h2>
         <div class="bs-component">
@@ -783,10 +758,10 @@
         </div>
 
       </div>
-    </div>
+    </bsp:row>
 
 
-    <div class="row">
+    <bsp:row>
       <div class="col-lg-4">
         <h2 id="pagination">Pagination</h2>
         <div class="bs-component">
@@ -836,22 +811,22 @@
       <div class="col-lg-4">
 
       </div>
-    </div>
+    </bsp:row>
   </div>
 
   <!-- Indicators
 ================================================== -->
   <div class="bs-docs-section">
 
-    <div class="row">
+    <bsp:row>
       <div class="col-lg-12">
         <div class="page-header">
           <h1 id="indicators">Indicators</h1>
         </div>
       </div>
-    </div>
+    </bsp:row>
 
-    <div class="row">
+    <bsp:row>
       <div class="col-lg-12">
         <h2>Alerts</h2>
         <div class="bs-component">
@@ -862,8 +837,8 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="row">
+    </bsp:row>
+    <bsp:row>
       <div class="col-lg-4">
         <div class="bs-component">
           <div class="alert alert-dismissable alert-danger">
@@ -888,8 +863,8 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="row">
+    </bsp:row>
+    <bsp:row>
       <div class="col-lg-4">
         <h2>Labels</h2>
         <div class="bs-component" style="margin-bottom: 40px;">
@@ -911,14 +886,14 @@
           </ul>
         </div>
       </div>
-    </div>
+    </bsp:row>
   </div>
 
   <!-- Progress bars
 ================================================== -->
   <div class="bs-docs-section">
 
-    <div class="row">
+    <bsp:row>
       <div class="col-lg-12">
         <div class="page-header">
           <h1 id="progress">Progress bars</h1>
@@ -985,14 +960,14 @@
           </div>
         </div>
       </div>
-    </div>
+    </bsp:row>
   </div>
 
   <!-- Containers
 ================================================== -->
   <div class="bs-docs-section">
 
-    <div class="row">
+    <bsp:row>
       <div class="col-lg-12">
         <div class="page-header">
           <h1 id="container">Containers</h1>
@@ -1005,15 +980,15 @@
           </div>
         </div>
       </div>
-    </div>
+    </bsp:row>
 
 
-    <div class="row">
+    <bsp:row>
       <div class="col-lg-12">
         <h2>List groups</h2>
       </div>
-    </div>
-    <div class="row">
+    </bsp:row>
+    <bsp:row>
       <div class="col-lg-4">
         <div class="bs-component">
           <ul class="list-group">
@@ -1059,15 +1034,15 @@
           </div>
         </div>
       </div>
-    </div>
+    </bsp:row>
 
 
-    <div class="row">
+    <bsp:row>
       <div class="col-lg-12">
         <h2>Panels</h2>
       </div>
-    </div>
-    <div class="row">
+    </bsp:row>
+    <bsp:row>
       <div class="col-lg-4">
         <div class="bs-component">
           <div class="panel panel-default">
@@ -1142,14 +1117,14 @@
           </div>
         </div>
       </div>
-    </div>
+    </bsp:row>
 
-    <div class="row">
+    <bsp:row>
       <div class="col-lg-12">
         <h2>Wells</h2>
       </div>
-    </div>
-    <div class="row">
+    </bsp:row>
+    <bsp:row>
       <div class="col-lg-4">
         <div class="bs-component">
           <div class="well">
@@ -1171,21 +1146,21 @@
           </div>
         </div>
       </div>
-    </div>
+    </bsp:row>
   </div>
 
   <!-- Dialogs
 ================================================== -->
   <div class="bs-docs-section">
 
-    <div class="row">
+    <bsp:row>
       <div class="col-lg-12">
         <div class="page-header">
           <h1 id="tables">Dialogs</h1>
         </div>
       </div>
-    </div>
-    <div class="row">
+    </bsp:row>
+    <bsp:row>
       <div class="col-lg-6">
         <h2>Modals</h2>
         <div class="bs-component">
@@ -1231,7 +1206,7 @@
           <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="" data-original-title="Tooltip on right">Right</button>
         </div>
       </div>
-    </div>
+    </bsp:row>
   </div>
 
   <div id="source-modal" class="modal fade">
@@ -1249,7 +1224,7 @@
   </div>
 
   <footer>
-    <div class="row">
+    <bsp:row>
       <div class="col-lg-12">
 
         <ul class="list-unstyled">
@@ -1259,7 +1234,7 @@
         <p>Based on <a href="http://getbootstrap.com" rel="nofollow">Bootstrap</a>. Icons from <a href="http://fortawesome.github.io/Font-Awesome/" rel="nofollow">Font Awesome</a>. Web fonts from <a href="http://www.google.com/webfonts" rel="nofollow">Google</a>.</p>
 
       </div>
-    </div>
+    </bsp:row>
 
   </footer>
 </bsp:container>

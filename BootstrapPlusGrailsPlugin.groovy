@@ -50,6 +50,13 @@ Brief summary/description of the plugin.
 
     def doWithApplicationContext = { ctx ->
         // TODO Implement post initialization spring config (optional)
+        Map.metaClass.prepend = {k,v ->
+            if (delegate.hasProperty(k) && delegate[k]) {
+                delegate[k] = "$v ${delegate[k]}"
+            } else {
+                delegate[k] = v
+            }
+        }
     }
 
     def onChange = { event ->
